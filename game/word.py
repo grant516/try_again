@@ -25,7 +25,7 @@ class Word:
         
 
     def guessed_letter(self, letter):
-
+        """This function looks through each of the letters for the user's inputted letter to check if it needs to replace any of the letters in the displayed word"""
         wrong = 1
         correct_guess = True
 
@@ -38,6 +38,7 @@ class Word:
                 self.show_guess = self.show_guess + self.list_word[x]
             else:
                 wrong += 1
+                self.show_guess = self.show_guess + self.list_word[x]
 
             if(wrong == len(self.word)):
                 self.wrong_guesses = self.wrong_guesses -1
