@@ -4,9 +4,9 @@ class Word:
 
     def __init__(self):
         word = "hello"
-        guess_word = []
+        list_word = []
         show_guess = ""
-        wrong_guesses = 0
+        wrong_guesses = 4
 
     def update_word(self):
         """This class chooses a word for the game and then makes the the tiles."""
@@ -18,23 +18,24 @@ class Word:
         elif val == 3:
             self.word = "pikachu"
 
-        self.wrong_guesses = len(self.word)
-
         #use the code below to also update when the player chooses a correct guess
         for x in range(0, len(self.word)):
-            self.guessed_word.append("_ ")
-            self.show_guess = self.show_guess + self.guessed_word[x]
+            self.list_word.append("_ ")
+            self.show_guess = self.show_guess + self.list_word[x]
         
 
     def guessed_letter(self, letter):
 
-        wrong =0
-        
+        wrong = 1
+        correct_guess = True
+
         for x in range(0, len(self.word)):
             if letter == self.word[x]:
-                self.guessed_word[x] = letter
-                self.show_guess = ""
-                self.show_guess = self.show_guess + self.guessed_word[x]
+                if correct_guess:
+                    self.show_guess = ""
+                    correct_guess = False
+                self.list_word[x] = letter
+                self.show_guess = self.show_guess + self.list_word[x]
             else:
                 wrong += 1
 
